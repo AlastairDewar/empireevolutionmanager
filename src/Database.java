@@ -12,7 +12,6 @@ public class Database {
 	private String password;
 	private String name;
 	private Connection connection = null;
-	Statement stmt = null;
 	ResultSet rs = null;
 	
 	public Database(String server_hostname, String server_username, String server_password, String database_name) {
