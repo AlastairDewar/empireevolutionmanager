@@ -25,7 +25,7 @@ public class Database {
 	
 	private void connect() {
 		try {
-            String url = "jdbc:mysql://localhost/test";
+            String url = "jdbc:mysql://"+this.hostname+"/"+this.name;
 			try {
 				Class.forName ("com.mysql.jdbc.Driver").newInstance();
 			} catch (InstantiationException e) {

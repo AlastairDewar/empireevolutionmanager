@@ -12,7 +12,7 @@ public class GameEngine {
 		gui = new GameEngineGUI(this);}
 		else{
 		gui = null;}
-		database = new Database("localhost", "testing", "testing", "empev");
+		database = new Database("localhost", "testing", "testing", "EmpireEvolution");
 		if(database.valid_connection()){
 			System.out.println("Starting loading procedure ..");
 			load_buildings();}
