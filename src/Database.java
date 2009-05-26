@@ -59,7 +59,7 @@ public class Database {
 		        stat.setFetchSize(Integer.MIN_VALUE);
 		        ResultSet results = stat.executeQuery();
 		   while (results.next()) {
-		        Building current_building = new Building();
+		        Building current_building = new Building(results.getInt("uid"));
 		        current_building.set_description(results.getString("description"));
 		        current_building.set_name(results.getString("name"));
 		        buildings.add(current_building);
@@ -72,5 +72,30 @@ public class Database {
 		    System.out.println("VendorError: " + ex.getErrorCode());
 		}
 		return buildings;
+	}
+
+	public ArrayList<Research> fetch_research_technologies() {
+		ArrayList<Research> research = new ArrayList<Research>();
+		try {
+		    PreparedStatement stat = connection.prepareStatement(
+		            "SELECT * FROM research",
+		            ResultSet.TYPE_FORWARD_ONLY,
+		            ResultSet.CONCUR_READ_ONLY);
+		        stat.setFetchSize(Integer.MIN_VALUE);
+		        ResultSet results = stat.executeQuery();
+		   while (results.next()) {
+		        Research current_research = new Research(results.getInt("uid"));
+		        current_research.set_description(results.getString("description"));
+		        current_research.set_name(results.getString("name"));
+		        research.add(current_research);
+		    }
+		}
+		catch (SQLException ex){
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		}
+		return research;
 	}
 }

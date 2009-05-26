@@ -5,6 +5,7 @@ public class GameEngine {
 	private GameEngineGUI gui = null;
 	private Database database = null;
 	private ArrayList<Building> buildings;
+	private ArrayList<Research> research_technolgies;
 	
 	public GameEngine(boolean display) {
 		System.out.println("Game Engine initiated");
@@ -15,7 +16,8 @@ public class GameEngine {
 		database = new Database("localhost", "testing", "testing", "EmpireEvolution");
 		if(database.valid_connection()){
 			System.out.println("Starting loading procedure ..");
-			load_buildings();}
+			load_buildings();
+			load_research_technolgies();}
 		else{
 			System.out.println("Database connection has gone down.");
 			kill();}
@@ -32,6 +34,11 @@ public class GameEngine {
 	private void load_buildings() {
 		buildings = database.fetch_buildings();
 		System.out.println("Loaded "+buildings.size()+" buildings ..");
+	}
+	
+	private void load_research_technolgies() {
+		research_technolgies = database.fetch_research_technologies();
+		System.out.println("Loaded "+research_technolgies.size()+" research technolgies ..");
 	}
 	
 	public void kill() {

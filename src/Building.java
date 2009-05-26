@@ -11,6 +11,9 @@ public class Building {
 	private int gold_cost_rate, stone_cost_rate, wood_cost_rate;
 	private ArrayList<Requirement> requirements;
 	
+	public Building(int newUID) {
+		this.unique_identifier = newUID;
+	}
 	
 	private int get_unique_identifier(){
 		return this.unique_identifier;
