@@ -30,8 +30,8 @@ public class GameEngine {
 	}
 	
 	private void load_buildings() {
-		System.out.println("Loading "+database.get_building_count()+" buildings ..");
 		buildings = database.fetch_buildings();
+		System.out.println("Loaded "+buildings.size()+" buildings ..");
 	}
 	
 	public void kill() {

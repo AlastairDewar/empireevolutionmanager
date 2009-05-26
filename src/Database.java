@@ -72,8 +72,4 @@ public class Database {
 		}
 		return buildings;
 	}
-	
-	public int get_building_count() {
-		return 0;
-	}
 }
