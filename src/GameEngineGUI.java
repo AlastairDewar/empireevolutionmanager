@@ -49,7 +49,6 @@ public class GameEngineGUI {
     	frame.setLocation(x, y);
     	frame.addWindowListener(new MyWindowListener());
    }
-    
 
 }
 class MyWindowListener implements WindowListener {
