@@ -54,7 +54,7 @@ public class Database {
 		ArrayList<Building> buildings = new ArrayList<Building>();
 		try {
 		    stmt = this.connection.createStatement();
-		    boolean buildings_exist = stmt.execute("SELECT * FROM Buildings");
+		    boolean buildings_exist = stmt.execute("SELECT * FROM building");
 		    while(buildings_exist) {
 		        rs = stmt.getResultSet();
 		        Building current_building = new Building();
