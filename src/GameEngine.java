@@ -2,6 +2,7 @@
 public class GameEngine {
 
 	private GameEngineGUI gui = null;
+	private Database database = null;
 	
 	public GameEngine(boolean display) {
 		System.out.println("Game Engine initiated");
@@ -9,6 +10,7 @@ public class GameEngine {
 		gui = new GameEngineGUI(this);}
 		else{
 		gui = null;}
+		database = new Database("localhost", "testing", "testing", "empev");
 	}
 	
 	public static void main(String[] args) {
