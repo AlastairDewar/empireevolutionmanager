@@ -1,7 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -53,15 +53,17 @@ public class Database {
 	public ArrayList<Building> fetch_buildings() {
 		ArrayList<Building> buildings = new ArrayList<Building>();
 		try {
-		    stmt = this.connection.createStatement();
-		    boolean buildings_exist = stmt.execute("SELECT * FROM building");
-		    while(buildings_exist) {
-		        rs = stmt.getResultSet();
+		    PreparedStatement stat = connection.prepareStatement(
+		            "SELECT * FROM building",
+		            ResultSet.TYPE_FORWARD_ONLY,
+		            ResultSet.CONCUR_READ_ONLY);
+		        stat.setFetchSize(Integer.MIN_VALUE);
+		        ResultSet results = stat.executeQuery();
+		   while (results.next()) {
 		        Building current_building = new Building();
-		        current_building.set_description(rs.getString("description"));
-		        current_building.set_name(rs.getString("name"));
+		        current_building.set_description(results.getString("description"));
+		        current_building.set_name(results.getString("name"));
 		        buildings.add(current_building);
-		        buildings_exist = this.stmt.getMoreResults();
 		    }
 		}
 		catch (SQLException ex){
