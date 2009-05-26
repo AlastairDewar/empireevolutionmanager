@@ -29,10 +29,14 @@ public class Database {
 		       DriverManager.getConnection("jdbc:mysql://"+this.hostname+"/"+this.name+"?" + 
 		                                   "user="+this.username+"&password="+this.password);
 		} catch (SQLException ex) {
-		    System.out.println("SQLException: " + ex.getMessage());
-		    System.out.println("SQLState: " + ex.getSQLState());
-		    System.out.println("VendorError: " + ex.getErrorCode());
+		    //System.out.println("SQLException: " + ex.getMessage());
+		    //System.out.println("SQLState: " + ex.getSQLState());
+		    //System.out.println("VendorError: " + ex.getErrorCode());
 		}
+	}
+	
+	public boolean valid_connection(){
+		if(this.connection != null){return true;}else{return false;}
 	}
 	
 	public ArrayList<Building> fetch_buildings() {
@@ -51,10 +55,14 @@ public class Database {
 		}
 		catch (SQLException ex){
 		    // handle any errors
-		    System.out.println("SQLException: " + ex.getMessage());
-		    System.out.println("SQLState: " + ex.getSQLState());
-		    System.out.println("VendorError: " + ex.getErrorCode());
+		    //System.out.println("SQLException: " + ex.getMessage());
+		    //System.out.println("SQLState: " + ex.getSQLState());
+		    //System.out.println("VendorError: " + ex.getErrorCode());
 		}
 		return buildings;
+	}
+	
+	public int get_building_count() {
+		return 0;
 	}
 }
