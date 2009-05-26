@@ -25,9 +25,20 @@ public class Database {
 	
 	private void connect() {
 		try {
-		    this.connection = 
-		       DriverManager.getConnection("jdbc:mysql://"+this.hostname+"/"+this.name+"?" + 
-		                                   "user="+this.username+"&password="+this.password);
+            String url = "jdbc:mysql://localhost/test";
+			try {
+				Class.forName ("com.mysql.jdbc.Driver").newInstance();
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            this.connection = DriverManager.getConnection (url, this.username, this.password);
 		} catch (SQLException ex) {
 		    System.out.println("SQLException: " + ex.getMessage());
 		    System.out.println("SQLState: " + ex.getSQLState());
