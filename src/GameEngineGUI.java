@@ -15,7 +15,7 @@ public class GameEngineGUI {
 	}
 	
     private void makeFrame(){
-    	frame = new JFrame("Empire Evolution Game Engine");
+    	frame = new JFrame("Empire Evolution Game Engine Manager");
 
     	Container contentPane = frame.getContentPane();
     	FlowLayout experimentLayout = new FlowLayout();
