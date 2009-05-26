@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 26, 2009 at 08:14 PM
+-- Generation Time: May 26, 2009 at 08:55 PM
 -- Server version: 5.0.67
 -- PHP Version: 5.2.6-2ubuntu4.2
 
@@ -588,8 +588,8 @@ CREATE TABLE IF NOT EXISTS `regiment_requirement` (
 
 CREATE TABLE IF NOT EXISTS `research` (
   `uid` int(12) NOT NULL auto_increment,
-  `research_name` varchar(255) NOT NULL,
-  `research_description` text NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   PRIMARY KEY  (`uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='Contains all data regarding Research' AUTO_INCREMENT=10 ;
 
@@ -597,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `research` (
 -- Dumping data for table `research`
 --
 
-INSERT INTO `research` (`uid`, `research_name`, `research_description`) VALUES
+INSERT INTO `research` (`uid`, `name`, `description`) VALUES
 (1, 'Construction', 'This skill will give a king&amp;apos;s people an understanding of how to build structures, giving access to more buildings and how to improve existing ones.'),
 (2, 'Economics', 'This skill will give a king&amp;apos;s people an understanding of how to run an effecient economy, giving access to buildings and improving existing ones.'),
 (3, 'Improved Labour', 'This skill will give a king&amp;apos;s people an understanding of how to work effeciently, giving access to buildings and improving existing ones.'),
