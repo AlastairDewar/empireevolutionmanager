@@ -12,11 +12,13 @@ public class Member {
 	private int join_date;
 	private ArrayList<Building> buildings;
 	private ArrayList<Research> research_technologies;
+	private ArrayList<Regiment> regiments;
 	private int resources[];
 	
 	public Member(){
-		this.buildings = new ArrayList<Building>();
-		this.research_technologies = new ArrayList<Research>();
+		buildings = new ArrayList<Building>();
+		research_technologies = new ArrayList<Research>();
+		regiments = new ArrayList<Regiment>();
 	}
 	
 	public int get_unique_identifier(){
@@ -105,7 +107,15 @@ public class Member {
 	}
 	
 	public void load_buildings(ArrayList<Building> new_buildings) {
-		this.buildings = new_buildings;
+		buildings = new_buildings;
+	}
+	
+	public void load_research_technolgies(ArrayList<Research> new_research_technologies) {
+		research_technologies = new_research_technologies;
+	}
+	
+	public void load_regiments(ArrayList<Regiment> new_regiments) {
+		regiments = new_regiments;
 	}
 	
 	public boolean requirement_met(Requirement subject){
