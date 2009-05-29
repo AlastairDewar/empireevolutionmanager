@@ -1,5 +1,6 @@
 package EmpireEvolutionManager;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GameEngine {
 
@@ -47,6 +48,19 @@ public class GameEngine {
 	private void load_regiments() {
 		regiments = database.fetch_regiments(0);
 		System.out.println("Loaded "+regiments.size()+" regiments ..");
+	}
+	
+	public Building get_building(int unique_identifier) {
+		Building found_building = null;
+		Iterator<Building> it = this.buildings.iterator();
+		while(it.hasNext()) {
+			Building current_building = it.next();
+			if(current_building.get_unique_identifier() == unique_identifier)
+			{
+				found_building = current_building;
+			}
+		}
+		return found_building;
 	}
 	
 	public void kill() {

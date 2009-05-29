@@ -16,7 +16,7 @@ public class Building {
 		this.unique_identifier = newUID;
 	}
 	
-	private int get_unique_identifier(){
+	public int get_unique_identifier(){
 		return this.unique_identifier;
 	}
 	
