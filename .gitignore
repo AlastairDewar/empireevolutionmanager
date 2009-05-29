@@ -1,2 +1,10 @@
 .classpath
 .project
+bin/Building.class
+bin/Research.class
+bin/Requirement.class
+bin/Regiment.class
+bin/Member.class
+bin/GameEngine.class
+bin/GameEngineGUI.class
+bin/Database.class
