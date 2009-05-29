@@ -18,7 +18,8 @@ public class GameEngine {
 		if(database.valid_connection()){
 			System.out.println("Starting loading procedure ..");
 			load_buildings();
-			load_research_technolgies();}
+			load_research_technolgies();
+			load_regiments();}
 		else{
 			System.out.println("Database connection has gone down.");
 			kill();}
