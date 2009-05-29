@@ -65,6 +65,7 @@ public class Database {
 			        Building current_building = new Building(results.getInt("uid"));
 			        current_building.set_description(results.getString("description"));
 			        current_building.set_name(results.getString("name"));
+			        // TODO Load the rest of the building
 			        buildings.add(current_building);
 			    }
 			}
@@ -136,6 +137,8 @@ public class Database {
 	
 	public Member load_member(Member subject) {
 		subject.load_buildings(fetch_buildings(subject.get_unique_identifier()));
+		// TODO Load player specific research
+		// TODO Load player specific regiments
 		return subject;
 	}
 }

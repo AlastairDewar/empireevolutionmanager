@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class GameEngine {
 
 	private GameEngineGUI gui = null;
-	public Database database = null;
+	private Database database = null;
 	private ArrayList<Building> buildings;
 	private ArrayList<Research> research_technolgies;
 	private ArrayList<Regiment> regiments;
