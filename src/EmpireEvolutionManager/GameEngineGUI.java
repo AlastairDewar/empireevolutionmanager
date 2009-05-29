@@ -27,7 +27,7 @@ public class GameEngineGUI {
     	p1.add(new JLabel("Please bare in mind updates are live before applying any changes."));
     	// etc
     	JPanel p2 = new JPanel(new GridLayout(8,1, 0, 5));
-    	p2.add(new JLabel("Main Menu"));
+    	p2.add(new JLabel("              Main Menu"));
     	p2.add(new JButton("News"));
     	p2.add(new JButton("Buildings"));
     	p2.add(new JButton("Research Technologies"));
