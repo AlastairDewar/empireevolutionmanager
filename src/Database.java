@@ -98,4 +98,28 @@ public class Database {
 		}
 		return research;
 	}
+	
+	public ArrayList<Regiment> fetch_regiments() {
+		ArrayList<Regiment> regiments = new ArrayList<Regiment>();
+		try {
+		    PreparedStatement stat = connection.prepareStatement(
+		            "SELECT * FROM regiment",
+		            ResultSet.TYPE_FORWARD_ONLY,
+		            ResultSet.CONCUR_READ_ONLY);
+		        stat.setFetchSize(Integer.MIN_VALUE);
+		        ResultSet results = stat.executeQuery();
+		   while (results.next()) {
+		        Regiment current_regiment = new Regiment(results.getInt("uid"));
+		        current_regiment.set_name(results.getString("name"));
+		        regiments.add(current_regiment);
+		    }
+		}
+		catch (SQLException ex){
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		}
+		return regiments;
+	}
 }

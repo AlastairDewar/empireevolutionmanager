@@ -6,6 +6,7 @@ public class GameEngine {
 	private Database database = null;
 	private ArrayList<Building> buildings;
 	private ArrayList<Research> research_technolgies;
+	private ArrayList<Regiment> regiments;
 	
 	public GameEngine(boolean display) {
 		System.out.println("Game Engine initiated");
@@ -39,6 +40,11 @@ public class GameEngine {
 	private void load_research_technolgies() {
 		research_technolgies = database.fetch_research_technologies();
 		System.out.println("Loaded "+research_technolgies.size()+" research technolgies ..");
+	}
+	
+	private void load_regiments() {
+		regiments = database.fetch_regiments();
+		System.out.println("Loaded "+regiments.size()+" regiments ..");
 	}
 	
 	public void kill() {
