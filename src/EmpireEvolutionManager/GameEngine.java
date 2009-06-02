@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 public class GameEngine {
 
-	private GameEngineGUI gui = null;
 	private Database database = null;
 	private ArrayList<Building> buildings;
 	private ArrayList<Research> research_technolgies;
@@ -13,9 +12,7 @@ public class GameEngine {
 	public GameEngine(boolean display) {
 		System.out.println("Game Engine initiated");
 		if(display == true){
-		gui = new GameEngineGUI(this);}
-		else{
-		gui = null;}
+		new GameEngineGUI(this);}
 		database = new Database("localhost", "testing", "testing", "EmpireEvolution");
 		if(database.valid_connection()){
 			System.out.println("Starting loading procedure ..");
