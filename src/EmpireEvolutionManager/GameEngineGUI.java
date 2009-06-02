@@ -29,7 +29,7 @@ public class GameEngineGUI implements ActionListener {
     	main_panel.add(new JLabel("Please bare in mind updates are live before applying any changes."));
     	// etc
     	JPanel p2 = new JPanel(new GridLayout(9,1, 0, 5));
-    	menu_name = new JLabel("              Main Menu");
+    	menu_name = new JLabel("Main Menu");
     	p2.add(menu_name);
     	JButton menu_button_1 = new JButton("News");
     	menu_button_1.addActionListener(this);
@@ -64,7 +64,7 @@ public class GameEngineGUI implements ActionListener {
 			System.out.println("Terminating. Goodbye.");
 			System.exit(0);}
 		else if(arg0.getActionCommand().equalsIgnoreCase("News")){
-			menu_name.setName("News Menu");
+			menu_name.setText("News Menu");
 		}
 	}
 
