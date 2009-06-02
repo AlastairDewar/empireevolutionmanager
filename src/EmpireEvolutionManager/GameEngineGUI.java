@@ -10,6 +10,7 @@ public class GameEngineGUI implements ActionListener {
 	
 	private JFrame frame;
 	private JLabel menu_name;
+	private JPanel main_panel;
 	
 	public GameEngineGUI(GameEngine newEngine) {
 		engine = newEngine;
@@ -23,14 +24,16 @@ public class GameEngineGUI implements ActionListener {
     	Container contentPane = frame.getContentPane();
     	FlowLayout experimentLayout = new FlowLayout();
     		contentPane.setLayout(experimentLayout);
-    	JPanel p1 = new JPanel(new GridLayout(9,1,0,5));
-    	p1.add(new JLabel("Welcome to the Empire Evolution Engine Manager."));
-    	p1.add(new JLabel("Please bare in mind updates are live before applying any changes."));
+    	main_panel = new JPanel(new GridLayout(9,1,0,5));
+    	main_panel.add(new JLabel("Welcome to the Empire Evolution Engine Manager."));
+    	main_panel.add(new JLabel("Please bare in mind updates are live before applying any changes."));
     	// etc
     	JPanel p2 = new JPanel(new GridLayout(9,1, 0, 5));
     	menu_name = new JLabel("              Main Menu");
     	p2.add(menu_name);
-    	p2.add(new JButton("News"));
+    	JButton menu_button_1 = new JButton("News");
+    	menu_button_1.addActionListener(this);
+    	p2.add(menu_button_1);
     	p2.add(new JButton("Buildings"));
     	p2.add(new JButton("Research Technologies"));
     	p2.add(new JButton("Resources"));
@@ -40,7 +43,7 @@ public class GameEngineGUI implements ActionListener {
     	JButton quit_button = new JButton("Quit");
     	quit_button.addActionListener(this);
     	p2.add(quit_button);
-    	contentPane.add(p1);
+    	contentPane.add(main_panel);
     	/* Space between panels */
     	contentPane.add(new JPanel());
     	contentPane.add(p2);
@@ -59,7 +62,9 @@ public class GameEngineGUI implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getActionCommand().equalsIgnoreCase("Quit")){
 			System.out.println("Terminating. Goodbye.");
-			System.exit(0);
+			System.exit(0);}
+		else if(arg0.getActionCommand().equalsIgnoreCase("News")){
+			menu_name.setName("News Menu");
 		}
 	}
 
