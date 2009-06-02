@@ -33,17 +33,17 @@ public class GameEngine {
 	}
 	
 	private void load_buildings() {
-		buildings = database.fetch_buildings(0);
+		buildings = database.fetch_buildings();
 		System.out.println("Loaded "+buildings.size()+" buildings ..");
 	}
 	
 	private void load_research_technolgies() {
-		research_technolgies = database.fetch_research_technologies(0);
+		research_technolgies = database.fetch_research_technologies();
 		System.out.println("Loaded "+research_technolgies.size()+" research technolgies ..");
 	}
 	
 	private void load_regiments() {
-		regiments = database.fetch_regiments(0);
+		regiments = database.fetch_regiments();
 		System.out.println("Loaded "+regiments.size()+" regiments ..");
 	}
 	

@@ -50,9 +50,7 @@ public class Database {
 		if(this.connection != null){return true;}else{return false;}
 	}
 	
-	public ArrayList<Building> fetch_buildings(int player_uid) {
-		if(player_uid == 0)
-		{
+	public ArrayList<Building> fetch_buildings() {
 			ArrayList<Building> buildings = new ArrayList<Building>();
 			try {
 			    PreparedStatement stat = connection.prepareStatement(
@@ -76,13 +74,12 @@ public class Database {
 			    System.out.println("VendorError: " + ex.getErrorCode());
 			}
 			return buildings;
-		}
-		else{return null;}
 	}
+	
+	public ArrayList<PlayerBuilding> fetch_buildings(int player_uid) {
+		return null;}
 
-	public ArrayList<Research> fetch_research_technologies(int player_uid) {
-		if(player_uid == 0)
-		{
+	public ArrayList<Research> fetch_research_technologies() {
 		ArrayList<Research> research = new ArrayList<Research>();
 		try {
 		    PreparedStatement stat = connection.prepareStatement(
@@ -105,11 +102,9 @@ public class Database {
 		    System.out.println("VendorError: " + ex.getErrorCode());
 		}
 		return research;
-		}else{return null;}
 	}
 	
-	public ArrayList<Regiment> fetch_regiments(int player_uid) {
-		if(player_uid == 0) {
+	public ArrayList<Regiment> fetch_regiments() {
 			ArrayList<Regiment> regiments = new ArrayList<Regiment>();
 			try {
 			    PreparedStatement stat = connection.prepareStatement(
@@ -131,8 +126,6 @@ public class Database {
 			    System.out.println("VendorError: " + ex.getErrorCode());
 			}
 			return regiments;
-		}
-		else{return null;}
 	}
 	
 	public Member load_member(Member subject) {
