@@ -1,7 +1,6 @@
 package EmpireEvolutionManager;
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class GameEngineGUI implements ActionListener {
@@ -12,6 +11,8 @@ public class GameEngineGUI implements ActionListener {
 	private JLabel menu_name;
 	private JPanel main_panel;
 	
+	private JButton menu_button_1, menu_button_2, menu_button_3, menu_button_4; 
+	
 	public GameEngineGUI(GameEngine newEngine) {
 		engine = newEngine;
 		System.out.println("Game Engine GUI initiated");
@@ -20,34 +21,44 @@ public class GameEngineGUI implements ActionListener {
 	
     private void makeFrame(){
     	frame = new JFrame("Empire Evolution Game Engine Manager");
-
     	Container contentPane = frame.getContentPane();
-    	FlowLayout experimentLayout = new FlowLayout();
-    		contentPane.setLayout(experimentLayout);
+        FlowLayout experimentLayout = new FlowLayout();
+        contentPane.setLayout(experimentLayout);
     	main_panel = new JPanel(new GridLayout(9,1,0,5));
     	main_panel.add(new JLabel("Welcome to the Empire Evolution Engine Manager."));
     	main_panel.add(new JLabel("Please bare in mind updates are live before applying any changes."));
     	// etc
-    	JPanel p2 = new JPanel(new GridLayout(9,1, 0, 5));
+    	JPanel menu_panel = new JPanel(new GridLayout(9,1, 0, 5));
     	menu_name = new JLabel("Main Menu");
-    	p2.add(menu_name);
+    	menu_panel.add(menu_name);
     	JButton menu_button_1 = new JButton("News");
     	menu_button_1.addActionListener(this);
-    	p2.add(menu_button_1);
-    	p2.add(new JButton("Buildings"));
-    	p2.add(new JButton("Research Technologies"));
-    	p2.add(new JButton("Resources"));
-    	p2.add(new JButton("Members"));
-    	p2.add(new JButton("Private Messaging"));
-    	p2.add(new JLabel(""));
+    	menu_panel.add(menu_button_1);
+    	JButton menu_button_2 = new JButton("Buildings");
+    	menu_button_2.addActionListener(this);
+    	menu_panel.add(menu_button_2);
+    	JButton menu_button_3 = new JButton("Research Technologies");
+    	menu_button_3.addActionListener(this);
+    	menu_panel.add(menu_button_3);
+    	JButton menu_button_4 = new JButton("Regiments");
+    	menu_button_4.addActionListener(this);
+    	menu_panel.add(menu_button_4);
+    	JButton menu_button_5 = new JButton("Members");
+    	menu_button_5.addActionListener(this);
+    	menu_panel.add(menu_button_5);
+    	JButton menu_button_6 = new JButton("Private Messaging");
+    	menu_button_6.addActionListener(this);
+    	menu_panel.add(menu_button_6);
+    	menu_panel.add(new JLabel(""));
     	JButton quit_button = new JButton("Quit");
     	quit_button.addActionListener(this);
-    	p2.add(quit_button);
+    	menu_panel.add(quit_button);
     	contentPane.add(main_panel);
     	/* Space between panels */
     	contentPane.add(new JPanel());
-    	contentPane.add(p2);
+    	contentPane.add(menu_panel);
     	frame.pack();
+    	frame.setSize(new Dimension(650,350));
     	frame.setVisible(true);
     	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     	Dimension size = frame.getSize();
@@ -65,7 +76,29 @@ public class GameEngineGUI implements ActionListener {
 			System.exit(0);}
 		else if(arg0.getActionCommand().equalsIgnoreCase("News")){
 			menu_name.setText("News Menu");
-		}
+			main_panel.removeAll();
+			main_panel.add(new JLabel("Welcome to the Empire Evolution manager News Editor."));
+			}
+		else if(arg0.getActionCommand().equalsIgnoreCase("Buildings")){
+			menu_name.setText("Buildings Menu");
+			main_panel.removeAll();
+			main_panel.add(new JLabel("Welcome to the Empire Evolution manager Building's Editor."));}
+		else if(arg0.getActionCommand().equalsIgnoreCase("Research Technologies")){
+			menu_name.setText("Research Technolgies Menu");
+			main_panel.removeAll();
+			main_panel.add(new JLabel("Welcome to the Empire Evolution manager Research Technologies Editor."));}
+		else if(arg0.getActionCommand().equalsIgnoreCase("Regiments")){
+			menu_name.setText("Regiments Menu");
+			main_panel.removeAll();
+			main_panel.add(new JLabel("Welcome to the Empire Evolution manager Regiments Editor."));}
+		else if(arg0.getActionCommand().equalsIgnoreCase("Members")){
+			menu_name.setText("Members Menu");
+			main_panel.removeAll();
+			main_panel.add(new JLabel("Welcome to the Empire Evolution manager Members Editor."));}
+		else if(arg0.getActionCommand().equalsIgnoreCase("Private Messaging")){
+			menu_name.setText("Private Messaging Menu");
+			main_panel.removeAll();
+			main_panel.add(new JLabel("Welcome to the Empire Evolution manager Private Messaging Editor."));}
 	}
 
 }
